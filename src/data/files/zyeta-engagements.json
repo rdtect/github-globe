@@ -1,0 +1,194 @@
+{
+  "SGP": {
+    "countryName": "Singapore",
+    "totalProjects": 8,
+    "engagements": [
+      {
+        "title": "TechCorp APAC Headquarters",
+        "client": "TechCorp Singapore",
+        "date": "March 2024",
+        "type": "Workspace Design",
+        "description": "Complete office redesign for 500+ employees",
+        "status": "Completed"
+      },
+      {
+        "title": "Regional HQ Design",
+        "client": "APAC Consulting Group",
+        "date": "May 2024",
+        "type": "Office Transformation",
+        "description": "Modern workspace for regional headquarters",
+        "status": "In Progress"
+      },
+      {
+        "title": "Startup Incubator",
+        "client": "Singapore Ventures",
+        "date": "July 2024",
+        "type": "Co-working Space",
+        "description": "Flexible workspace for 50+ startups",
+        "status": "Planning"
+      },
+      {
+        "title": "Design Week Singapore Talk",
+        "client": "Singapore Design Council",
+        "date": "November 2023",
+        "type": "Speaking Engagement",
+        "description": "Keynote on Future of Workplace Design",
+        "status": "Completed"
+      }
+    ]
+  },
+  "ARE": {
+    "countryName": "United Arab Emirates",
+    "totalProjects": 5,
+    "engagements": [
+      {
+        "title": "Financial Hub Workspace",
+        "client": "Emirates Finance",
+        "date": "February 2024",
+        "type": "Office Design",
+        "description": "Luxury workspace for financial services",
+        "status": "Completed"
+      },
+      {
+        "title": "Tech Hub Workspace",
+        "client": "Dubai Tech City",
+        "date": "June 2024",
+        "type": "Innovation Center",
+        "description": "Smart office with IoT integration",
+        "status": "In Progress"
+      },
+      {
+        "title": "Dubai Design Festival",
+        "client": "Dubai Culture",
+        "date": "October 2023",
+        "type": "Panel Discussion",
+        "description": "Future of Sustainable Workspaces",
+        "status": "Completed"
+      }
+    ]
+  },
+  "MYS": {
+    "countryName": "Malaysia",
+    "totalProjects": 3,
+    "engagements": [
+      {
+        "title": "Innovation Lab Design",
+        "client": "Malaysia Tech Park",
+        "date": "January 2024",
+        "type": "Lab Design",
+        "description": "State-of-the-art research facility",
+        "status": "Completed"
+      },
+      {
+        "title": "KL Architecture Summit",
+        "client": "Malaysian Institute of Architects",
+        "date": "September 2023",
+        "type": "Workshop",
+        "description": "Workplace Design Trends in APAC",
+        "status": "Completed"
+      }
+    ]
+  },
+  "THA": {
+    "countryName": "Thailand",
+    "totalProjects": 4,
+    "engagements": [
+      {
+        "title": "Creative Agency Office",
+        "client": "Bangkok Creative Co",
+        "date": "December 2023",
+        "type": "Creative Workspace",
+        "description": "Vibrant office for creative professionals",
+        "status": "Completed"
+      },
+      {
+        "title": "Bangkok Design Week",
+        "client": "Creative Economy Agency",
+        "date": "February 2024",
+        "type": "Exhibition",
+        "description": "Showcasing innovative workspace concepts",
+        "status": "Completed"
+      }
+    ]
+  },
+  "IDN": {
+    "countryName": "Indonesia",
+    "totalProjects": 2,
+    "engagements": [
+      {
+        "title": "Co-working Space",
+        "client": "Jakarta Business Hub",
+        "date": "November 2023",
+        "type": "Shared Workspace",
+        "description": "Modern co-working for 200+ members",
+        "status": "Completed"
+      }
+    ]
+  },
+  "PHL": {
+    "countryName": "Philippines",
+    "totalProjects": 2,
+    "engagements": [
+      {
+        "title": "Call Center Redesign",
+        "client": "Manila BPO Services",
+        "date": "October 2023",
+        "type": "BPO Workspace",
+        "description": "Ergonomic design for 1000+ seats",
+        "status": "On Hold"
+      }
+    ]
+  },
+  "HKG": {
+    "countryName": "Hong Kong",
+    "totalProjects": 3,
+    "engagements": [
+      {
+        "title": "FinTech Office Space",
+        "client": "Hong Kong Finance Ltd",
+        "date": "April 2024",
+        "type": "Financial Services",
+        "description": "High-security trading floor design",
+        "status": "In Progress"
+      },
+      {
+        "title": "Asia Pacific Design Conference",
+        "client": "Hong Kong Design Centre",
+        "date": "January 2024",
+        "type": "Keynote Speech",
+        "description": "The Evolution of Workspace in Asia",
+        "status": "Completed"
+      }
+    ]
+  },
+  "IND": {
+    "countryName": "India",
+    "totalProjects": 25,
+    "engagements": [
+      {
+        "title": "Zyeta Headquarters",
+        "client": "Internal",
+        "date": "Ongoing",
+        "type": "Corporate Office",
+        "description": "Main headquarters in Bangalore",
+        "status": "Active"
+      },
+      {
+        "title": "Tech Park Redesign",
+        "client": "Bangalore IT Hub",
+        "date": "August 2024",
+        "type": "Campus Design",
+        "description": "500,000 sq ft technology campus",
+        "status": "Planning"
+      },
+      {
+        "title": "Mumbai Financial Center",
+        "client": "Mumbai Corp Bank",
+        "date": "June 2024",
+        "type": "Banking Workspace",
+        "description": "Modern banking headquarters",
+        "status": "In Progress"
+      }
+    ]
+  }
+}

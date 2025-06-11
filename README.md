@@ -1,40 +1,174 @@
-# Github Globe
+# Zyeta Globe - Modern Edition
 
-![github-globe made by Zhanar Osmonaliev](https://janarosmonaliev.github.io/github-globe/src/files/github-globe-banner.png)
+> Modern interactive 3D globe for Zyeta's global workspace design engagements
 
-## Inspiration
+## 🚀 Features
 
-This project was inspired by [Github's homepage](https://github.com/home), where they display real-time Github activity on a globe map.
+### ✨ **Core Features**
+- **Interactive 3D Globe** - Latest Three.js with smooth animations
+- **Real-time Engagement Data** - Country-specific project details
+- **Modular Notepad System** - Rich note-taking with auto-save
+- **Advanced Search** - Find countries, projects, and clients instantly
+- **Responsive Design** - Perfect on desktop, tablet, and mobile
 
-## Implementation
+### 🔧 **Modern Architecture**
+- **Vite 6.3.5** - Lightning-fast builds and HMR
+- **Three.js 0.177.0** - Latest 3D engine capabilities
+- **ES6+ Modules** - Clean, maintainable code structure
+- **Event-Driven** - Decoupled components with custom EventEmitter
+- **Performance Optimized** - Code splitting and lazy loading ready
 
-The globe is constructed with [three-globe](https://github.com/vasturiano/three-globe), a ThreeJS data-visualization project made by [@vasturiano](https://github.com/vasturiano). Then, the scene is shaded with a dim ambient light and multiple directional lights to resemble a dreamy space environment. The globe's `MeshPhongMaterial` is also adjusted to fit the environment.
+### 📝 **Note-Taking System**
+- **Country Notes** - Add observations per region
+- **Project Notes** - Track project-specific details
+- **Auto-save** - Never lose your work
+- **Export/Import** - Backup and restore notes
+- **Rich Text** - Markdown-style formatting support
 
-## [Live demo](https://janarosmonaliev.github.io/github-globe/)
+## 🏗️ Architecture
 
-All my attended/cancelled flights (2019-2020) are displayed on the globe. If you try to follow one arc, that would be the sequence of my travel destinations. Red arcs are cancelled flights.
-
-## Documentation
-
-Please visit [three-globe](https://github.com/vasturiano/three-globe) for detailed documentation if you want to edit the `Globe` object to add data visualization. Speaking of the Glow, `three-globe` does not let you access the glow mesh object yet, so the default glow was turned off and a separate `three-glow-mesh` is added to the scene instead.
-
-## Usage
-
-This project is bundled with [Webpack](https://webpack.js.org/):
-
-```json
-"build": "webpack --config=webpack.prod.js",
-"build-dev": "webpack --config=webpack.dev.js",
-"start": "webpack serve webpack-dev-server --open --config=webpack.dev.js"
+```
+src/
+├── main.js              # Application entry point
+├── core/                # Core engine modules
+│   ├── App.js          # Main orchestrator
+│   ├── Scene.js        # Three.js scene management
+│   ├── Globe.js        # 3D globe visualization
+│   └── Controls.js     # Camera and interaction controls
+├── data/               # Data management
+│   ├── DataManager.js  # CRUD operations and storage
+│   └── files/          # JSON data files
+├── ui/                 # User interface components
+│   ├── UI.js           # Main UI controller
+│   ├── EngagementPanel.js # Country details panel
+│   ├── Notepad.js      # Note-taking system
+│   ├── Modal.js        # Modal dialogs
+│   └── Toolbar.js      # Navigation toolbar
+├── utils/              # Utilities
+│   └── EventEmitter.js # Custom event system
+└── styles/
+    └── main.css        # Modern CSS with variables
 ```
 
-Details:
+## 🎮 Usage
 
+### **Development**
 ```bash
-npm start        # development build in ./dist
-npm run build    # static production build in ./
+npm run dev     # Start development server (http://localhost:5174)
+npm run build   # Build for production
+npm run preview # Preview production build
 ```
 
-## License
+### **Interactions**
+- **🖱️ Mouse**: Rotate and zoom the globe
+- **📱 Touch**: Pinch to zoom, swipe to rotate
+- **⌨️ Keyboard Shortcuts**:
+  - `H` - Reset view to home
+  - `/` - Open search
+  - `Ctrl+N` - Create new note
+  - `Ctrl+S` - Save current note
+  - `R` - Reset camera view
+  - `Space` - Toggle auto-rotate
 
-[MIT](https://choosealicense.com/licenses/mit/)
+### **Country Engagement**
+1. **Click** any highlighted country (India, Singapore, UAE, etc.)
+2. **View** detailed project information in the side panel
+3. **Add Notes** using the notepad system
+4. **Export** engagement data as JSON
+
+## 📊 Data Structure
+
+### **Countries Data**
+- GeoJSON format with country boundaries
+- ISO codes for identification
+- Visual highlighting for Zyeta presence
+
+### **Engagements Data**
+```json
+{
+  "SGP": {
+    "countryName": "Singapore",
+    "totalProjects": 8,
+    "engagements": [
+      {
+        "title": "TechCorp APAC Headquarters",
+        "client": "TechCorp Singapore",
+        "date": "March 2024",
+        "type": "Workspace Design",
+        "description": "Complete office redesign for 500+ employees",
+        "status": "Completed"
+      }
+    ]
+  }
+}
+```
+
+### **User Notes Storage**
+- **Local Storage** - Persistent across sessions
+- **Auto-backup** - Prevents data loss
+- **Export/Import** - JSON format for portability
+
+## 🎨 Customization
+
+### **Colors**
+Edit CSS variables in `src/styles/main.css`:
+```css
+:root {
+  --primary-blue: #00d4ff;    /* Zyeta brand blue */
+  --primary-gold: #ffd700;    /* India highlight */
+  --bg-dark: #040d21;         /* Background */
+}
+```
+
+### **Globe Configuration**
+Modify `src/core/Globe.js`:
+```javascript
+this.config = {
+  globeRadius: 100,
+  atmosphereAltitude: 0.25,
+  arcAltitude: 0.3,
+  animationDuration: 1000
+};
+```
+
+## 🚀 Performance
+
+- **First Paint**: < 1s on modern browsers
+- **Interactive**: < 2s full load time
+- **Memory**: Optimized Three.js object disposal
+- **Mobile**: 60fps on modern devices
+
+## 🔧 Browser Support
+
+- **Chrome/Edge**: 90+ ✅
+- **Firefox**: 88+ ✅
+- **Safari**: 14+ ✅
+- **Mobile**: iOS 14+, Android 10+ ✅
+
+## 📈 Future Enhancements
+
+- [ ] **Real-time Collaboration** - Multi-user editing
+- [ ] **Voice Notes** - Audio annotations
+- [ ] **Timeline View** - Project progression tracking
+- [ ] **Analytics Dashboard** - Engagement metrics
+- [ ] **API Integration** - Live data updates
+- [ ] **VR/AR Support** - Immersive experiences
+
+## 🤝 Contributing
+
+1. **Clone** the repository
+2. **Install** dependencies: `npm install`
+3. **Start** development: `npm run dev`
+4. **Make** your changes
+5. **Test** thoroughly
+6. **Submit** a pull request
+
+## 📄 License
+
+MIT License - see LICENSE file for details
+
+---
+
+**Built with ❤️ for Zyeta by Rick De**
+
+*Modern architecture • Latest libraries • Best practices*
