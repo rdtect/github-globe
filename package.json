@@ -1,32 +1,40 @@
 {
-  "name": "zyeta-global-engagement-globe",
-  "version": "2.0.0",
-  "description": "Interactive 3D globe visualization for Zyeta's global workspace design engagements",
-  "type": "module",
+  "name": "payal-sandhu-portfolio",
+  "version": "1.0.0",
+  "description": "Interactive 3D globe showcasing Payal Sandhu's international collaborations and projects",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "echo \"Tests coming soon\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config=webpack.prod.js",
+    "build-dev": "NODE_OPTIONS=--openssl-legacy-provider webpack --config=webpack.dev.js",
+    "start": "npm run build-dev && cd dist && python3 -m http.server 8080",
+    "copy-html": "cp index.html dist/",
+    "dev": "vite dev --port 3000",
+    "preview": "vite preview --port 3000"
   },
   "keywords": [
-    "three.js",
+    "portfolio",
+    "collaboration",
     "3d",
+    "notetaking",
     "globe",
-    "visualization",
-    "workspace",
-    "design",
+    "threejs",
     "interactive",
-    "vite",
-    "modern"
+    "presentation"
   ],
   "author": "Rick De",
   "license": "MIT",
-  "devDependencies": {
-    "vite": "^6.3.5"
-  },
   "dependencies": {
-    "three": "^0.177.0",
-    "three-globe": "^2.42.11"
+    "three": "^0.128.0",
+    "three-globe": "^2.18.8",
+    "three-glow-mesh": "^0.1.2"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "json-loader": "^0.5.7",
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^5.2.2"
   }
 }

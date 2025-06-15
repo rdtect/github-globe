@@ -2,11 +2,16 @@
  * Notepad Component - Modular note-taking system
  */
 
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
+import { ModalMixin } from '../utils/ModalMixin.js';
+import { globalKeyboardHandler } from '../utils/KeyboardHandler.js';
 
-export class Notepad extends EventEmitter {
+export class Notepad extends BaseComponent {
   constructor(dataManager) {
-    super();
+    super('Notepad');
+    
+    // Apply modal mixin
+    Object.assign(this, ModalMixin);
     
     this.dataManager = dataManager;
     this.isInitialized = false;

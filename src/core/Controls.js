@@ -4,15 +4,14 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
 
-export class Controls extends EventEmitter {
+export class Controls extends BaseComponent {
   constructor(scene, globe) {
-    super();
+    super('Controls');
     
     this.scene = scene;
     this.globe = globe;
-    this.isInitialized = false;
     
     // Controls
     this.orbitControls = null;

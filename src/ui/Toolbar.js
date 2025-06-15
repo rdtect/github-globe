@@ -2,16 +2,16 @@
  * Toolbar Component - Navigation and action toolbar
  */
 
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
+import { SearchUtils } from '../utils/SearchUtils.js';
 
-export class Toolbar extends EventEmitter {
+export class Toolbar extends BaseComponent {
   constructor(globe, controls, modal) {
-    super();
+    super('Toolbar');
     
     this.globe = globe;
     this.controls = controls;
     this.modal = modal;
-    this.isInitialized = false;
     
     // DOM elements
     this.container = null;

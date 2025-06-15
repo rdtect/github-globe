@@ -3,14 +3,13 @@
  */
 
 import * as THREE from 'three';
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
 
-export class Scene extends EventEmitter {
+export class Scene extends BaseComponent {
   constructor(container) {
-    super();
+    super('Scene');
     
     this.container = container;
-    this.isInitialized = false;
     this.isAnimating = false;
     this.isPaused = false;
     

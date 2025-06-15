@@ -4,32 +4,22 @@
 
 import * as THREE from 'three';
 import ThreeGlobe from 'three-globe';
-// Removed D3 dependency - using simpler direct data processing
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
+import { GLOBE_CONFIG, ZYETA_COLORS, ANIMATION_TIMINGS } from '../utils/Constants.js';
 
-export class Globe extends EventEmitter {
+export class Globe extends BaseComponent {
   constructor(scene, dataManager) {
-    super();
+    super('Globe');
     
     this.scene = scene;
     this.dataManager = dataManager;
-    this.isInitialized = false;
     
     // Three-globe instance
     this.globe = null;
     this.globeGroup = new THREE.Group();
     
-    // Configuration - Match legacy exactly
-    this.config = {
-      globeRadius: 100,  // Legacy globe radius
-      atmosphereAltitude: 0.25,
-      hexPolygonResolution: 3,
-      hexPolygonMargin: 0.7,
-      arcAltitude: 0.3,
-      pointAltitude: 0.07,
-      labelAltitude: 0.01,
-      animationDuration: 1000
-    };
+    // Configuration using constants
+    this.config = GLOBE_CONFIG;
     
     // Visual state
     this.hoveredCountry = null;
@@ -40,16 +30,16 @@ export class Globe extends EventEmitter {
     this.rotationSpeed = 0.001;
     this.autoRotate = false;
     
-    // Colors
+    // Colors using constants
     this.colors = {
-      india: '#ffd700',        // Gold for headquarters
-      zyetaBlue: '#00d4ff',    // Zyeta brand blue
+      india: ZYETA_COLORS.GOLD,
+      zyetaBlue: ZYETA_COLORS.PRIMARY_BLUE,
       defaultCountry: 'rgba(255, 255, 255, 0.5)',
-      atmosphere: '#3a228a',
-      arcActive: '#00d4ff',
-      arcInactive: '#ff6b6b',
-      globeSurface: '#061621',
-      globeEmissive: '#062038'
+      atmosphere: ZYETA_COLORS.ATMOSPHERE,
+      arcActive: ZYETA_COLORS.ARC_ACTIVE,
+      arcInactive: ZYETA_COLORS.ARC_INACTIVE,
+      globeSurface: ZYETA_COLORS.GLOBE_SURFACE,
+      globeEmissive: ZYETA_COLORS.GLOBE_EMISSIVE
     };
     
     // Country codes with Zyeta presence
@@ -270,19 +260,6 @@ export class Globe extends EventEmitter {
     }
   }
 
-  /**
-   * Get country color based on Zyeta presence (fallback)
-   */
-  getCountryColor(country) {
-    return this.getEnhancedCountryColor(country);
-  }
-
-  /**
-   * Get country altitude (elevation) (fallback)
-   */
-  getCountryAltitude(country) {
-    return this.getEnhancedCountryAltitude(country);
-  }
 
   /**
    * Enhanced arc color based on category with validation
@@ -320,26 +297,6 @@ export class Globe extends EventEmitter {
     return isNaN(stroke) ? 1 : Math.max(0.1, Math.min(3.0, stroke));
   }
 
-  /**
-   * Get arc color based on project status (fallback)
-   */
-  getArcColor(arc) {
-    return this.getEnhancedArcColor(arc);
-  }
-
-  /**
-   * Get arc altitude (fallback)
-   */
-  getArcAltitude(arc) {
-    return this.getEnhancedArcAltitude(arc);
-  }
-
-  /**
-   * Get arc stroke width (fallback)
-   */
-  getArcStroke(arc) {
-    return this.getEnhancedArcStroke(arc);
-  }
 
   /**
    * Get label color

@@ -2,11 +2,13 @@
  * Enhanced Engagement Panel - Migrated and improved from original app
  */
 
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
+import { ModalMixin } from '../utils/ModalMixin.js';
+import { getStatusColor, getTypeColor } from '../utils/ColorUtils.js';
 
-export class EngagementPanel extends EventEmitter {
+export class EngagementPanel extends BaseComponent {
   constructor(dataManager) {
-    super();
+    super('EngagementPanel');
     
     this.dataManager = dataManager;
     this.isVisible = false;
@@ -14,6 +16,9 @@ export class EngagementPanel extends EventEmitter {
     
     // Initialize later to avoid DOM issues
     this.panel = null;
+    
+    // Apply modal mixin
+    Object.assign(this, ModalMixin);
   }
 
   /**
@@ -423,33 +428,6 @@ export class EngagementPanel extends EventEmitter {
     this.emit('panel:resize');
   }
 
-  /**
-   * Get status-based color
-   */
-  getStatusColor(status) {
-    const colorMap = {
-      'Completed': '#9cff00',
-      'Active': '#9cff00', 
-      'In Progress': '#00d4ff',
-      'Planning': '#ffb84d',
-      'On Hold': '#ff6b6b',
-      'Cancelled': '#999999'
-    };
-    return colorMap[status] || '#cccccc';
-  }
-
-  /**
-   * Get type-based color
-   */
-  getTypeColor(type) {
-    if (type && type.toLowerCase().includes('talk')) {
-      return '#9966ff'; // Purple for talks
-    } else if (type && type.toLowerCase().includes('contact')) {
-      return '#66ff99'; // Green for contacts  
-    } else {
-      return '#00d4ff'; // Blue for projects
-    }
-  }
 
 
   /**

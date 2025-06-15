@@ -2,20 +2,19 @@
  * UI Manager - Main interface controller
  */
 
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
 import { EngagementPanel } from '/src/ui/EngagementPanel.js';
 import { Notepad } from '/src/ui/Notepad.js';
 import { Modal } from '/src/ui/Modal.js';
 import { Toolbar } from '/src/ui/Toolbar.js';
 
-export class UI extends EventEmitter {
+export class UI extends BaseComponent {
   constructor(dataManager, globe, controls) {
-    super();
+    super('UI');
     
     this.dataManager = dataManager;
     this.globe = globe;
     this.controls = controls;
-    this.isInitialized = false;
     this.isEnabled = false;
     
     // UI Components

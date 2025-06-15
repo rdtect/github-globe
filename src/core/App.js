@@ -3,16 +3,16 @@
  * Orchestrates all modules and manages application lifecycle
  */
 
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
 import { Scene } from '/src/core/Scene.js';
 import { Globe } from '/src/core/Globe.js';
 import { Controls } from '/src/core/Controls.js';
 import { DataManager } from '/src/data/DataManager.js';
 import { UI } from '/src/ui/UI.js';
 
-export class App extends EventEmitter {
+export class App extends BaseComponent {
   constructor() {
-    super();
+    super('App');
     
     this.isInitialized = false;
     this.isDestroyed = false;

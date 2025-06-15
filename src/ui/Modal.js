@@ -2,13 +2,13 @@
  * Modal Component - Reusable modal dialog system
  */
 
-import { EventEmitter } from '/src/utils/EventEmitter.js';
+import BaseComponent from '../utils/BaseComponent.js';
+import { ModalMixin } from '../utils/ModalMixin.js';
 
-export class Modal extends EventEmitter {
+export class Modal extends BaseComponent {
   constructor() {
-    super();
+    super('Modal');
     
-    this.isInitialized = false;
     this.isVisible = false;
     this.currentModal = null;
     
@@ -22,6 +22,9 @@ export class Modal extends EventEmitter {
       closeOnEscape: true,
       showCloseButton: true
     };
+    
+    // Apply modal mixin
+    Object.assign(this, ModalMixin);
   }
 
   /**

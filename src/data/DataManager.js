@@ -2,14 +2,12 @@
  * Data Manager - Handles all data loading, caching, and CRUD operations
  */
 
-import { EventEmitter } from '/src/utils/EventEmitter.js';
-// Simplified DataManager without complex D3 processing
+import BaseComponent from '../utils/BaseComponent.js';
+import { SearchUtils } from '../utils/SearchUtils.js';
 
-export class DataManager extends EventEmitter {
+export class DataManager extends BaseComponent {
   constructor() {
-    super();
-    
-    this.isInitialized = false;
+    super('DataManager');
     this.cache = new Map();
     this.data = {
       countries: null,
@@ -271,21 +269,16 @@ export class DataManager extends EventEmitter {
 
     if (!query || query.length < 2) return results;
 
-    const searchTerm = query.toLowerCase();
-
-    // Search countries
+    // Use SearchUtils for consistent search logic
+    results.offices = SearchUtils.filterResults(this.data.offices || [], query, 20);
+    results.projects = SearchUtils.filterResults(this.data.projects || [], query, 20);
+    
+    // Handle countries specially due to nested properties
     if (this.data.countries) {
+      const searchTerm = SearchUtils.normalizeText(query);
       results.countries = this.data.countries.features.filter(country => 
-        country.properties.NAME.toLowerCase().includes(searchTerm) ||
-        country.properties.ISO_A3.toLowerCase().includes(searchTerm)
-      );
-    }
-
-    // Search offices
-    if (this.data.offices) {
-      results.offices = this.data.offices.filter(office =>
-        office.city.toLowerCase().includes(searchTerm) ||
-        office.country.toLowerCase().includes(searchTerm)
+        SearchUtils.normalizeText(country.properties.NAME).includes(searchTerm) ||
+        SearchUtils.normalizeText(country.properties.ISO_A3).includes(searchTerm)
       );
     }
 

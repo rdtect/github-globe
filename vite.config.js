@@ -19,5 +19,8 @@ export default defineConfig({
   },
   resolve: {
     extensions: ['.js', '.json']
+  },
+  optimizeDeps: {
+    include: ['three-globe', 'three']
   }
 });
